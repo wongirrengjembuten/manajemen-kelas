@@ -55,7 +55,7 @@ RUN chown -R $user:$user /var/www \
     && chmod -R 775 /var/www/storage /var/www/bootstrap/cache
 
 # Setup Nginx for single-container deployment (e.g. Railway)
-COPY docker-compose/nginx/perpustakaan.conf /etc/nginx/sites-available/default
+COPY docker-compose/nginx/kelas.conf /etc/nginx/sites-available/default
 # Change port 80 to 8080 since we're not running as root, and use localhost for PHP-FPM
 RUN sed -i 's/listen 80;/listen 8080;/' /etc/nginx/sites-available/default \
     && sed -i 's/fastcgi_pass app:9000;/fastcgi_pass 127.0.0.1:9000;/' /etc/nginx/sites-available/default
